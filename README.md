@@ -48,7 +48,7 @@ python3 manage.py runserver
 
 <h1>Примеры запросов</h1>
 
-1. http://127.0.0.1:8000/api/v1/posts/
+1. GET http://127.0.0.1:8000/api/v1/posts/
 
 
 ```
@@ -68,7 +68,7 @@ python3 manage.py runserver
   ]
 }
 ```
-2. http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+2. GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 ```
 [
   {
