@@ -47,9 +47,9 @@ python3 manage.py runserver
 ```
 
 <h1>Примеры запросов</h1>
-```
-http://127.0.0.1:8000/api/v1/posts/
-```
+
+1. http://127.0.0.1:8000/api/v1/posts/
+
 
 ```
 {
@@ -67,4 +67,16 @@ http://127.0.0.1:8000/api/v1/posts/
     }
   ]
 }
+```
+2. http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+```
+[
+  {
+    "id": 0,
+    "author": "string",
+    "text": "string",
+    "created": "2019-08-24T14:15:22Z",
+    "post": 0
+  }
+]
 ```
