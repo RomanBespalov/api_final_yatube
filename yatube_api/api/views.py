@@ -46,16 +46,16 @@ class CommentViewSet(viewsets.ModelViewSet):
         AuthorOrReadonly, permissions.IsAuthenticatedOrReadOnly
     )
 
-    def get_post_id(self):
-        return self.kwargs.get("post_id")
+    def get_post(self):
+        post = get_object_or_404(Post, pk=self.kwargs.get("post_id"))
+        return post
 
     def get_queryset(self):
-        new_queryset = Comment.objects.filter(post=self.get_post_id())
+        new_queryset = Comment.objects.filter(post=self.get_post())
         return new_queryset
 
     def perform_create(self, serializer):
-        post = get_object_or_404(Post, pk=self.get_post_id())
-        serializer.save(author=self.request.user, post=post)
+        serializer.save(author=self.request.user, post=self.get_post())
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
